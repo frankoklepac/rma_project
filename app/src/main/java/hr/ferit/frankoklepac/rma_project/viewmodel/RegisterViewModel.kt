@@ -10,7 +10,6 @@ import hr.ferit.frankoklepac.rma_project.data.DataStoreManager
 import hr.ferit.frankoklepac.rma_project.model.User
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
-import kotlinx.coroutines.delay
 
 class RegisterViewModel : ViewModel() {
     val username = mutableStateOf("")

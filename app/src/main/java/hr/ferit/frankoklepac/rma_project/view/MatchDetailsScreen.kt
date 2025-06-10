@@ -21,7 +21,6 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import hr.ferit.frankoklepac.rma_project.R
-import hr.ferit.frankoklepac.rma_project.model.Game
 import hr.ferit.frankoklepac.rma_project.ui.theme.BoneWhite
 import hr.ferit.frankoklepac.rma_project.ui.theme.DefaultBackground
 import hr.ferit.frankoklepac.rma_project.ui.theme.NavigationBackground

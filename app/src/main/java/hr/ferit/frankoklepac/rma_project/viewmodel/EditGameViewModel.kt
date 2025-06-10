@@ -133,7 +133,6 @@ class EditGameViewModel : ViewModel() {
                     return@launch
                 }
 
-                // Validate inputs
                 if (_yourChampion.value.isBlank() || _enemyChampion.value.isBlank()) {
                     _errorMessage.value = "Please enter both champions"
                     return@launch
