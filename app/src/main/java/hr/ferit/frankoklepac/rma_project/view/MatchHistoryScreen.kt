@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -73,7 +74,7 @@ fun MatchHistoryScreen(
                 )
             }
             Text(
-                text = "Match History",
+                text = stringResource(R.string.match_history),
                 style = MaterialTheme.typography.titleLarge.copy(
                     fontWeight = FontWeight.Bold,
                     fontSize = 32.sp
@@ -106,7 +107,7 @@ fun MatchHistoryScreen(
                 )
             } else if (games.isEmpty()) {
                 Text(
-                    text = "No games found. Add a game to start!",
+                    text = stringResource(R.string.match_history_empty),
                     color = BoneWhite,
                     modifier = Modifier
                         .align(Alignment.Center)
@@ -222,7 +223,7 @@ fun GameTile(game: Game, navController: NavController) {
                     color = PrimaryBtnColour
                 ) {
                     Text(
-                        text = "Tap for Details",
+                        text = stringResource(R.string.details),
                         modifier = Modifier.padding(8.dp),
                         color = Color.White,
                         fontSize = 14.sp,

@@ -1,3 +1,53 @@
 <resources>
+    <!-- General Auth -->
     <string name="app_name">LoL Game Journal</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="email">Email</string>
+    <string name="logout">Logout</string>
+    <string name="login_process">Logging in…</string>
+    <string name="register_process">Registering…</string>
+
+    <!--MainMenuScreen-->
+    <string name="location_fetch">Fetching location…</string>
+    <string name="location_success">Location fetched successfully!\nLocation: %1$s</string>
+    <string name="server_info">You should play on the \n %1$s server for the best experience</string>
+    <string name="new_game">New Game</string>
+    <string name="match_history">Match History</string>
+
+    <!--NewGameScreen-->
+    <string name="your_champion">Your Champion</string>
+    <string name="enemy_champion">Enemy Champion</string>
+    <string name="result_win">Win</string>
+    <string name="result_lose">Lose</string>
+    <string name="kills">Kills</string>
+    <string name="assists">Assists</string>
+    <string name="deaths">Deaths</string>
+    <string name="notes">Notes</string>
+    <string name="add_game">Add Game</string>
+    <string name="saving_process">Saving…</string>
+
+    <!-- MatchHistoryScreen -->
+    <string name="match_history_empty">No games found.</string>
+    <string name="details">Tap for Details</string>
+
+    <!-- MatchDetailsScreen -->
+    <string name="match_details">Match Details</string>
+    <string name="victory">Victory</string>
+    <string name="defeat">Defeat</string>
+    <string name="kills_num">Kills: %1$s</string>
+    <string name="assists_num">Assists: %1$s</string>
+    <string name="deaths_num">Deaths: %1$s</string>
+    <string name="played_on">Played on: %1$s</string>
+    <string name="game_notes">Game Notes</string>
+    <string name="edit_game">Edit Game</string>
+    <string name="delete_game">Delete Game</string>
+
+    <!-- EditGameScreen -->
+    <string name="edit_game_title">Edit Game</string>
+    <string name="cancel">Cancel</string>
+
 </resources>

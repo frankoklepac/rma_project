@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LoL Game Journal</string>
+    <string name="login">Prijava</string>
+    <string name="register">Registracija</string>
+    <string name="username">Korisničko ime</string>
+    <string name="password">Lozinka</string>
+    <string name="confirm_password">Ponovi lozinku</string>
+    <string name="email">Email</string>
+    <string name="logout">Odjava</string>
+    <string name="login_process">Prijava u tijeku …</string>
+    <string name="register_process">Registracija u tijeku …</string>
+
+    <!-- MainMenuScreen -->
+    <string name="location_fetch">Dohvaćanje lokacije…</string>
+    <string name="location_success">Lokacija uspješno dohvaćena!\nLokacija: %1$s</string>
+    <string name="server_info">Trebao bi igrati na \n %1$s serveru za najbolje iskustvo</string>
+    <string name="new_game">Dodaj Partiju</string>
+    <string name="match_history">Povijest Partija</string>
+
+    <!--NewGameScreen-->
+    <string name="your_champion">Tvoj Heroj</string>
+    <string name="enemy_champion">Protivnički Heroj</string>
+    <string name="result_win">Pobjeda</string>
+    <string name="result_lose">Poraz</string>
+    <string name="kills">Killovi</string>
+    <string name="assists">Asistancije</string>
+    <string name="deaths">Smrti</string>
+    <string name="notes">Bilješke</string>
+    <string name="add_game">Dodaj Partiju</string>
+    <string name="saving_process">Spremanje Partije…</string>
+
+    <!-- MatchHistoryScreen -->
+    <string name="match_history_empty">Nema dodanih partija.</string>
+    <string name="details">Dotakni za Detaje</string>
+
+    <!-- MatchDetailsScreen -->
+    <string name="match_details">Detalji Partije</string>
+    <string name="victory">Pobjeda</string>
+    <string name="defeat">Poraz</string>
+    <string name="kills_num">Killovi: %1$s</string>
+    <string name="assists_num">Asistencije: %1$s</string>
+    <string name="deaths_num">Smrti: %1$s</string>
+    <string name="played_on">Igrano: %1$s</string>
+    <string name="game_notes">Bilješke o Partiji</string>
+    <string name="edit_game">Uredi Partiju</string>
+    <string name="delete_game">Obriši Partiju</string>
+
+    <!-- EditGameScreen -->
+    <string name="edit_game_title">Uredi Partiju</string>
+    <string name="cancel">Poništi</string>
+</resources>

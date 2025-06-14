@@ -28,6 +28,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.ExposedDropdownMenuDefaults.outlinedTextFieldColors
 import hr.ferit.frankoklepac.rma_project.ui.theme.DarkRed
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 
 
@@ -70,7 +71,7 @@ fun NewGameScreen(
                 )
             }
             Text(
-                text = "New Game",
+                text = stringResource(R.string.new_game),
                 style = MaterialTheme.typography.titleLarge.copy(
                     fontWeight = FontWeight.Bold,
                     fontSize = 32.sp
@@ -100,7 +101,7 @@ fun NewGameScreen(
                         onValueChange = { newValue: String ->
                             viewModel.updateGame("yourChampion", newValue)
                         },
-                        label = { Text("Your Champion") },
+                        label = { Text(text=stringResource(R.string.your_champion)) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .background(BoneWhite, shape = MaterialTheme.shapes.medium)
@@ -122,7 +123,7 @@ fun NewGameScreen(
                         onValueChange = { newValue: String ->
                             viewModel.updateGame("enemyChampion", newValue)
                         },
-                        label = { Text("Enemy Champion") },
+                        label = { Text(text=stringResource(R.string.enemy_champion)) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .background(BoneWhite, shape = MaterialTheme.shapes.medium)
@@ -157,7 +158,7 @@ fun NewGameScreen(
                             shape = MaterialTheme.shapes.medium
                         )  {
                             Text(
-                                text = "Win",
+                                text = stringResource(R.string.result_win),
                                 fontSize = 16.sp
                             )
                         }
@@ -174,7 +175,7 @@ fun NewGameScreen(
                             shape = MaterialTheme.shapes.medium
                         ) {
                             Text(
-                                text = "Lose",
+                                text = stringResource(R.string.result_lose),
                                 fontSize = 16.sp
                             )
                         }
@@ -192,7 +193,7 @@ fun NewGameScreen(
                             onValueChange = {
                                 viewModel.updateGame("kills", it.toIntOrNull() ?: 0)
                             },
-                            label = { Text("Kills") },
+                            label = { Text(text=stringResource(R.string.kills)) },
                             modifier = Modifier
                                 .weight(1f)
                                 .padding(end = 4.dp)
@@ -213,7 +214,7 @@ fun NewGameScreen(
                             onValueChange = {
                                 viewModel.updateGame("assists", it.toIntOrNull() ?: 0)
                             },
-                            label = { Text("Assists") },
+                            label = { Text(text=stringResource(R.string.assists)) },
                             modifier = Modifier
                                 .weight(1f)
                                 .padding(horizontal = 4.dp)
@@ -234,7 +235,7 @@ fun NewGameScreen(
                             onValueChange = {
                                 viewModel.updateGame("deaths", it.toIntOrNull() ?: 0)
                             },
-                            label = { Text("Deaths") },
+                            label = { Text(text=stringResource(R.string.deaths)) },
                             modifier = Modifier
                                 .weight(1f)
                                 .padding(start = 4.dp)
@@ -260,7 +261,7 @@ fun NewGameScreen(
                         onValueChange = { newValue: String ->
                             viewModel.updateGame("notes", newValue)
                         },
-                        label = { Text("Notes") },
+                        label = { Text(text=stringResource(R.string.notes)) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .background(BoneWhite, shape = MaterialTheme.shapes.medium)
@@ -302,7 +303,7 @@ fun NewGameScreen(
                         shape = MaterialTheme.shapes.medium
                     ) {
                         Text(
-                            text = if (isLoading) "Saving..." else "Add Game",
+                            text = if (isLoading) stringResource(R.string.saving_process) else stringResource(R.string.add_game),
                             fontSize = 18.sp,
                             color = Color.White
                         )

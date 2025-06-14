@@ -27,6 +27,8 @@ import hr.ferit.frankoklepac.rma_project.ui.theme.PrimaryBtnColour
 import hr.ferit.frankoklepac.rma_project.ui.theme.SoftGolden
 import hr.ferit.frankoklepac.rma_project.viewmodel.LoginViewModel
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.ui.res.stringResource
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -65,7 +67,7 @@ fun LoginScreen(
                 )
             }
             Text(
-                text = "Login",
+                text = stringResource(R.string.login),
                 style = MaterialTheme.typography.titleLarge.copy(
                     fontWeight = FontWeight.Bold,
                     fontSize = 32.sp
@@ -93,7 +95,7 @@ fun LoginScreen(
                 OutlinedTextField(
                     value = viewModel.email.value,
                     onValueChange = { viewModel.email.value = it },
-                    label = { Text("Email") },
+                    label = { Text(text=stringResource(R.string.email)) },
                     modifier = Modifier
                         .fillMaxWidth()
                         .background(BoneWhite, shape = MaterialTheme.shapes.medium)
@@ -111,7 +113,7 @@ fun LoginScreen(
                 OutlinedTextField(
                     value = viewModel.password.value,
                     onValueChange = { viewModel.password.value = it },
-                    label = { Text("Password") },
+                    label = { Text(text=stringResource(R.string.password)) },
                     modifier = Modifier
                         .fillMaxWidth()
                         .background(BoneWhite, shape = MaterialTheme.shapes.medium)
@@ -152,7 +154,7 @@ fun LoginScreen(
                     shape = MaterialTheme.shapes.medium
                 ) {
                     Text(
-                        text = if (isLoading) "Logging in..." else "Login",
+                        text = if (isLoading) stringResource(R.string.login_process) else stringResource(R.string.login),
                         fontSize = 18.sp,
                         color = Color.White
                     )

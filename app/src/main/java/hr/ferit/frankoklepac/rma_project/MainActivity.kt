@@ -56,6 +56,7 @@ class MainActivity : ComponentActivity() {
                 val context = LocalContext.current
                 val auth = FirebaseAuth.getInstance()
 
+
                 LaunchedEffect(Unit) {
                     intent.getStringExtra("navigateTo")?.let { route ->
                         navController.navigate(route) {

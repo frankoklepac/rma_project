@@ -26,6 +26,7 @@ import hr.ferit.frankoklepac.rma_project.ui.theme.PrimaryBtnColour
 import hr.ferit.frankoklepac.rma_project.ui.theme.SoftGolden
 import hr.ferit.frankoklepac.rma_project.viewmodel.RegisterViewModel
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -64,7 +65,7 @@ fun RegisterScreen(
                 )
             }
             Text(
-                text = "Register",
+                text = stringResource(R.string.register),
                 style = MaterialTheme.typography.titleLarge.copy(
                     fontWeight = FontWeight.Bold,
                     fontSize = 32.sp
@@ -92,7 +93,7 @@ fun RegisterScreen(
                 OutlinedTextField(
                     value = viewModel.username.value,
                     onValueChange = { viewModel.username.value = it },
-                    label = { Text("Username") },
+                    label = { Text(text=stringResource(R.string.username)) },
                     modifier = Modifier
                         .fillMaxWidth()
                         .background(BoneWhite, shape = MaterialTheme.shapes.medium)
@@ -111,7 +112,7 @@ fun RegisterScreen(
                 OutlinedTextField(
                     value = viewModel.email.value,
                     onValueChange = { viewModel.email.value = it },
-                    label = { Text("Email") },
+                    label = { Text(text=stringResource(R.string.email)) },
                     modifier = Modifier
                         .fillMaxWidth()
                         .background(BoneWhite, shape = MaterialTheme.shapes.medium)
@@ -129,7 +130,7 @@ fun RegisterScreen(
                 OutlinedTextField(
                     value = viewModel.password.value,
                     onValueChange = { viewModel.password.value = it },
-                    label = { Text("Password") },
+                    label = { Text(text=stringResource(R.string.password)) },
                     modifier = Modifier
                         .fillMaxWidth()
                         .background(BoneWhite, shape = MaterialTheme.shapes.medium)
@@ -148,7 +149,7 @@ fun RegisterScreen(
                 OutlinedTextField(
                     value = viewModel.confirmPassword.value,
                     onValueChange = { viewModel.confirmPassword.value = it },
-                    label = { Text("Confirm Password") },
+                    label = { Text(text=stringResource(R.string.confirm_password)) },
                     modifier = Modifier
                         .fillMaxWidth()
                         .background(BoneWhite, shape = MaterialTheme.shapes.medium)
@@ -188,7 +189,7 @@ fun RegisterScreen(
                     shape = MaterialTheme.shapes.medium
                 ) {
                     Text(
-                        text = if (isLoading) "Registering..." else "Register",
+                        text = if (isLoading) stringResource(R.string.register_process) else stringResource(R.string.register),
                         fontSize = 18.sp,
                         color = Color.White
                     )

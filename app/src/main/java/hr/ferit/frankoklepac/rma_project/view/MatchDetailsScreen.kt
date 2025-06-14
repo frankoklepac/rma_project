@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -75,7 +76,7 @@ fun MatchDetailsScreen(
                 )
             }
             Text(
-                text = "Match Details",
+                text = stringResource(R.string.match_details),
                 style = MaterialTheme.typography.titleLarge.copy(
                     fontWeight = FontWeight.Bold,
                     fontSize = 32.sp
@@ -130,7 +131,7 @@ fun MatchDetailsScreen(
                     )
 
                     Text(
-                        text = if (game?.result == "Win") "Victory" else "Defeat",
+                        text = if (game?.result == "Win") stringResource(R.string.victory) else stringResource(R.string.defeat),
                         style = MaterialTheme.typography.titleMedium.copy(
                             fontWeight = FontWeight.Bold,
                             fontSize = 30.sp
@@ -144,21 +145,21 @@ fun MatchDetailsScreen(
                         horizontalArrangement = Arrangement.SpaceEvenly
                     ) {
                         Text(
-                            text = "Kills: ${game?.kills ?: 0}",
+                            text = stringResource(R.string.kills_num, game?.kills ?: 0),
                             style = MaterialTheme.typography.bodyLarge.copy(
                                 fontSize = 16.sp
                             ),
                             color = BoneWhite
                         )
                         Text(
-                            text = "Assists: ${game?.assists ?: 0}",
+                            text =stringResource(R.string.assists_num, game?.assists ?: 0),
                             style = MaterialTheme.typography.bodyLarge.copy(
                                 fontSize = 16.sp
                             ),
                             color = BoneWhite
                         )
                         Text(
-                            text = "Deaths: ${game?.deaths ?: 0}",
+                            text = stringResource(R.string.deaths_num, game?.deaths ?: 0),
                             style = MaterialTheme.typography.bodyLarge.copy(
                                 fontSize = 16.sp
                             ),
@@ -185,7 +186,7 @@ fun MatchDetailsScreen(
                         SimpleDateFormat("MM/dd/yyyy", Locale.getDefault()).format(it)
                     } ?: "Unknown Date"
                     Text(
-                        text = "Played on: $dateText",
+                        text = stringResource(R.string.played_on, dateText),
                         style = MaterialTheme.typography.bodyLarge.copy(
                             fontSize = 16.sp
                         ),
@@ -193,7 +194,7 @@ fun MatchDetailsScreen(
                     )
 
                     Text(
-                        text = "Game Notes",
+                        text = stringResource(R.string.game_notes),
                         style = MaterialTheme.typography.titleMedium.copy(
                             fontWeight = FontWeight.Bold,
                             fontSize = 20.sp
@@ -238,7 +239,7 @@ fun MatchDetailsScreen(
                             shape = MaterialTheme.shapes.medium
                         ) {
                             Text(
-                                text = "Edit Game",
+                                text = stringResource(R.string.edit_game),
                                 fontSize = 16.sp,
                                 color = Color.White
                             )
@@ -259,12 +260,14 @@ fun MatchDetailsScreen(
                             shape = MaterialTheme.shapes.medium
                         ) {
                             Text(
-                                text = "Delete Game",
+                                text = stringResource(R.string.delete_game),
                                 fontSize = 16.sp,
                                 color = Color.White
                             )
                         }
                     }
+                    Spacer(modifier = Modifier.height(32.dp))
+
                 }
             }
         }

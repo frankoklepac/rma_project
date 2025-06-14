@@ -29,6 +29,7 @@ import hr.ferit.frankoklepac.rma_project.ui.theme.DarkRed
 import hr.ferit.frankoklepac.rma_project.viewmodel.EditGameViewModel
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.ExposedDropdownMenuDefaults.outlinedTextFieldColors
+import androidx.compose.ui.res.stringResource
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -81,7 +82,7 @@ fun EditGameScreen(
                 )
             }
             Text(
-                text = "Edit Game",
+                text = stringResource(R.string.edit_game_title),
                 style = MaterialTheme.typography.titleLarge.copy(
                     fontWeight = FontWeight.Bold,
                     fontSize = 32.sp
@@ -103,7 +104,7 @@ fun EditGameScreen(
                     OutlinedTextField(
                         value = yourChampion,
                         onValueChange = { viewModel.onYourChampionChange(it) },
-                        label = { Text("Your Champion") },
+                        label = { Text(text=stringResource(R.string.your_champion)) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .background(BoneWhite, shape = MaterialTheme.shapes.medium)
@@ -123,7 +124,7 @@ fun EditGameScreen(
                     OutlinedTextField(
                         value = enemyChampion,
                         onValueChange = { viewModel.onEnemyChampionChange(it) },
-                        label = { Text("Enemy Champion") },
+                        label = {  Text(text=stringResource(R.string.enemy_champion)) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .background(BoneWhite, shape = MaterialTheme.shapes.medium)
@@ -155,7 +156,7 @@ fun EditGameScreen(
                             shape = MaterialTheme.shapes.medium
                         ) {
                             Text(
-                                text = "Win",
+                                text = stringResource(R.string.result_win),
                                 fontSize = 16.sp
                             )
                         }
@@ -170,7 +171,7 @@ fun EditGameScreen(
                             shape = MaterialTheme.shapes.medium
                         ) {
                             Text(
-                                text = "Lose",
+                                text = stringResource(R.string.result_lose),
                                 fontSize = 16.sp
                             )
                         }
@@ -186,7 +187,7 @@ fun EditGameScreen(
                         OutlinedTextField(
                             value = kills,
                             onValueChange = { viewModel.onKillsChange(it) },
-                            label = { Text("Kills") },
+                            label = { Text(text=stringResource(R.string.kills)) },
                             modifier = Modifier
                                 .weight(1f)
                                 .padding(end = 4.dp)
@@ -204,7 +205,7 @@ fun EditGameScreen(
                         OutlinedTextField(
                             value = assists,
                             onValueChange = { viewModel.onAssistsChange(it) },
-                            label = { Text("Assists") },
+                            label = { Text(text=stringResource(R.string.assists)) },
                             modifier = Modifier
                                 .weight(1f)
                                 .padding(horizontal = 4.dp)
@@ -222,7 +223,7 @@ fun EditGameScreen(
                         OutlinedTextField(
                             value = deaths,
                             onValueChange = { viewModel.onDeathsChange(it) },
-                            label = { Text("Deaths") },
+                            label = { Text(text=stringResource(R.string.deaths)) },
                             modifier = Modifier
                                 .weight(1f)
                                 .padding(start = 4.dp)
@@ -245,7 +246,7 @@ fun EditGameScreen(
                     OutlinedTextField(
                         value = notes,
                         onValueChange = { viewModel.onNotesChange(it) },
-                        label = { Text("Notes") },
+                        label = { Text(text=stringResource(R.string.notes)) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .background(BoneWhite, shape = MaterialTheme.shapes.medium)
@@ -289,7 +290,7 @@ fun EditGameScreen(
                             shape = MaterialTheme.shapes.medium
                         ) {
                             Text(
-                                text = "Cancel",
+                                text = stringResource(R.string.cancel),
                                 fontSize = 18.sp,
                                 color = Color.White
                             )
@@ -311,7 +312,7 @@ fun EditGameScreen(
                             shape = MaterialTheme.shapes.medium
                         ) {
                             Text(
-                                text = if (isLoading) "Saving..." else "Save",
+                                text = if (isLoading) stringResource(R.string.saving_process) else stringResource(R.string.add_game),
                                 fontSize = 18.sp,
                                 color = Color.White
                             )

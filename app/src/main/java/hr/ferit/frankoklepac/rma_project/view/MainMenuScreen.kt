@@ -9,10 +9,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -23,31 +21,27 @@ import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import hr.ferit.frankoklepac.rma_project.viewmodel.StartViewModel
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.res.painterResource
 import hr.ferit.frankoklepac.rma_project.R
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.work.ExistingPeriodicWorkPolicy
-import androidx.work.PeriodicWorkRequestBuilder
-import androidx.work.WorkManager
+import com.google.firebase.auth.FirebaseAuth
+import hr.ferit.frankoklepac.rma_project.data.DataStoreManager
 import hr.ferit.frankoklepac.rma_project.ui.theme.NavigationBackground
 import hr.ferit.frankoklepac.rma_project.ui.theme.PrimaryBtnColour
 import hr.ferit.frankoklepac.rma_project.ui.theme.SecondaryBtnColour
@@ -55,7 +49,6 @@ import hr.ferit.frankoklepac.rma_project.ui.theme.SoftGolden
 import hr.ferit.frankoklepac.rma_project.viewmodel.MainMenuViewModel
 import hr.ferit.frankoklepac.rma_project.viewmodel.NotificationViewModel
 import kotlinx.coroutines.launch
-import java.time.Duration
 
 @Composable
 fun MainMenuScreen(
@@ -69,6 +62,7 @@ fun MainMenuScreen(
     var hasLocationPermission by remember { mutableStateOf(false) }
     val coroutineScope = rememberCoroutineScope()
     val context = LocalContext.current
+    val auth = FirebaseAuth.getInstance()
 
     val permissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
@@ -132,9 +126,9 @@ fun MainMenuScreen(
                     )
                 } ?: run {
                     viewModel.userLocation.value?.let { location ->
-                        val cityName = viewModel.getCityName(location)
+                        val cityName = viewModel.getCityName(location) ?: " "
                         Text(
-                            text = "Location fetched successfully!\nLocation: $cityName",
+                            text = stringResource(R.string.location_success, cityName),
                             color = SoftGolden,
                             fontSize = 16.sp,
                             fontWeight = FontWeight.Medium,
@@ -144,14 +138,14 @@ fun MainMenuScreen(
                             textAlign = TextAlign.Center
                         )
                     } ?: Text(
-                        text = "Fetching location...",
+                        text = stringResource(R.string.location_fetch),
                         color = SoftGolden,
                         fontSize = 16.sp,
                         modifier = Modifier.padding(bottom = 4.dp)
                     )
                     viewModel.closestServer.value?.let { server ->
                         Text(
-                            text = "You should play on the \n $server server for the best experience",
+                            text = stringResource(R.string.server_info, server),
                             color = SoftGolden,
                             fontSize = 16.sp,
                             fontWeight = FontWeight.Medium,
@@ -176,7 +170,7 @@ fun MainMenuScreen(
                     shape = MaterialTheme.shapes.medium
                 ) {
                     Text(
-                        text = "New Game",
+                        text = stringResource(R.string.new_game),
                         fontSize = 18.sp,
                         color = Color(0xFFFFFFFF),
                     )
@@ -194,7 +188,7 @@ fun MainMenuScreen(
                     shape = MaterialTheme.shapes.medium
                 ) {
                     Text(
-                        text = "Match History",
+                        text = stringResource(R.string.match_history),
                         fontSize = 18.sp,
                         color = Color(0xFFFFFFFF),
                     )
@@ -202,7 +196,18 @@ fun MainMenuScreen(
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Button(
-                    onClick = { navController.navigate("start") },
+                    onClick = {
+                        auth.signOut()
+                        coroutineScope.launch {
+                            DataStoreManager.clearUserId(context)
+                            navController.navigate("start") {
+                                popUpTo(navController.graph.id) {
+                                    inclusive = true
+                                }
+                                launchSingleTop = true
+                            }
+                        }
+                    },
                     modifier = Modifier
                         .width(200.dp)
                         .height(60.dp),
@@ -212,9 +217,9 @@ fun MainMenuScreen(
                     shape = MaterialTheme.shapes.medium
                 ) {
                     Text(
-                        text = "Logout",
+                        text = stringResource(R.string.logout),
                         fontSize = 18.sp,
-                        color = Color(0xFFFFFFFF),
+                        color = Color(0xFFFFFFFF)
                     )
                 }
             }
